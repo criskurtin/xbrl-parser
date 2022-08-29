@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from typing import Any, Dict
 
 import xmltodict
 
@@ -131,7 +132,7 @@ class XBRL:
         return current_assets / current_liabilities
 
     @staticmethod
-    def get_newest_year(data: {}):
+    def get_newest_year(data: Dict[Any, Any]):
         year = 0
         for key, val in data.items():
             if key < year:
@@ -141,7 +142,7 @@ class XBRL:
         return year
 
     @staticmethod
-    def get_oldest_year(data: {}):
+    def get_oldest_year(data: Dict[Any, Any]):
         year = None
         for key, val in data.items():
             if year is None or key < year:
