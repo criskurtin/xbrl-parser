@@ -20,11 +20,6 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Office/Business :: Financial",
     ],
-    entry_points={
-        'console_scripts': [
-            'parse_xbrl=xbrl_parser.console_scripts.__main__:main',
-        ]
-    },
     extras_require={
         'lint': [
             "pylint",

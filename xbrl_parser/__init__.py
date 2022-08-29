@@ -7,9 +7,8 @@ from xbrl_parser.utilities import convert_to_correct_type, xbrli_convert_period,
 
 
 class XBRL:
-    def __init__(self, file: str, *prefixes: str):
-        with open(file) as f:
-            p = xmltodict.parse(f.read())
+    def __init__(self, raw_xbrl_string: str, *prefixes: str):
+        p = xmltodict.parse(raw_xbrl_string)
         if "xbrli:xbrl" not in p.keys():
             raise Exception()
         self.xbrli = p["xbrli:xbrl"]
@@ -80,7 +79,7 @@ class XBRL:
     def _parse_single_statement(self, p):
         context_ref = p["@contextRef"]
         unit = p["@unitRef"] if "@unitRef" in p else None
-        value = convert_to_correct_type(p["#text"])
+        value = convert_to_correct_type(p["#text"]) if "#text" in p else None
         ok = self.context[context_ref]
         result = {
             "unit": unit,
