@@ -3,7 +3,7 @@
 Parses XBRL files (DEI, GAAP, IFRS).
 
 ## Install
-`git clone https://github.com/dkfinance/xbrl-parser.git`
+`git clone https://github.com/criskurtin/xbrl-parser.git`
 
 `cd xbrl-parser`
 
